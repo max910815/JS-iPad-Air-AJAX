@@ -8,6 +8,6 @@
         {"Purple":{"#BFBED5":"https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-finish-select-gallery-202211-purple-wifi?wid=2560&hei=1440&fmt=p-jpg&qlt=95&.v=1670631590784"}},
         {"Starlight":{"#E7E2DA":"https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-air-finish-select-gallery-202211-starlight-wifi?wid=2560&hei=1440&fmt=p-jpg&qlt=95&.v=1670631590802"}}],
         "Storage":[{"64GB":"0"},{"256GB":"5000"}],
-        "Connectivity":[{"Wi-Fi":"0","Wi-Fi+Network":"5000"}]
+        "Connectivity":[{"Wi-Fi":"0"},{"Wi-Fi+Network":"5000"}]
         }
 }
