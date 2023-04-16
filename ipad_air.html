@@ -7,7 +7,20 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .btn-primary{
+            background-color: white;
+            color: blue;
+            border: 0;
+        }
+        .total{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            font-size: x-large;
+        }
 
+    </style>
 </head>
 
 <body>
@@ -21,7 +34,7 @@
             <div class="col-12 col-md-6">
                 <h2>購買 Ipad Air</h2>
                 <!-- Button trigger modal -->
-                <div class="color d-flex">
+                <div class="color d-flex justify-content-between w-50">
                     <h3>Space_Gray</h3>
                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop-color">
@@ -62,7 +75,7 @@
                 </div>
 
 
-                <div class="GB d-flex">
+                <div class="GB d-flex justify-content-between w-50">
                     <h3 class="GB-h3">64GB</h3>
                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop-GB">
@@ -99,9 +112,9 @@
 
 
 
-                <div class="Wi-fi d-flex">
+                <div class="Wi-fi d-flex justify-content-between w-50">
                     <h3>Wi-Fi</h3>
-                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop-wifi">
                         更改
                     </button>
@@ -176,23 +189,27 @@
         }
 
         function getGB() {
+            console.log("getGB")
             let GB = document.querySelectorAll(".GB-group")
+            let GB_num = 0
             GB.forEach((gb, index) => {
                 console.log(gb, index)
-                let GB_num = 0
                 gb.addEventListener("click", function () {
                     let h3 = document.querySelector(".GB-h3")
                     let total = document.querySelector(".total")
                     let total_span = document.querySelector(".total span")
                     // 取得數字
                     let totalAmount = parseInt(total_span.textContent)
+                    console.log(GB_num)
                     if (index == 0) {
+                        
                         h3.innerHTML = "64GB"
                         if(GB_num == 0){
                             total.innerHTML = `<p>NT$ <span>${totalAmount}</span></p>`;
                         }else{
                             let newTotalAmount = totalAmount - parseInt(data.type.Storage[1]["256GB"]);
                             total.innerHTML = `<p>NT$ <span>${newTotalAmount}</span></p>`;
+                            GB_num = 0
                         }
                         
                     } else if (index == 1) {
@@ -221,7 +238,7 @@
             color.addEventListener("click", function(){
                 let target = event.target;
                     if(Object.keys(item) == target.textContent){
-                        let colorObj = Object.values(item)[0]; \
+                        let colorObj = Object.values(item)[0]; 
                         Object.keys(colorObj).forEach(key => { 
                             let url = colorObj[key]; 
                             color_h3.innerHTML = `<h3>${Object.keys(item)[0]}</h3>`
@@ -235,9 +252,9 @@
 
         function getWifi() {
                 let Wifi = document.querySelectorAll(".Wifi-group")
+                let wifi_num = 0
                 Wifi.forEach((wifi, index) => {
                     console.log(wifi, index)
-                    let wifi_num = 0
                     wifi.addEventListener("click", function () {
                         let h3 = document.querySelector(".Wi-fi h3")
                         let total = document.querySelector(".total")
@@ -250,8 +267,10 @@
                             if (wifi_num == 0) {
                                 total.innerHTML = `<p>NT$ <span>${totalAmount}</span></p>`;
                             } else {
+                                console.log("-5000")
                                 let newTotalAmount = totalAmount - parseInt(data.type.Connectivity[1]["Wi-Fi+Network"]);
                                 total.innerHTML = `<p>NT$ <span>${newTotalAmount}</span></p>`;
+                                wifi_num = 0
                             }
 
                         } else if (index == 1) {
